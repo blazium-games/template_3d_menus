@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/prefs_board.gd" id="1"]
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_energy = 0.6
+ambient_light_color = Color(0.62, 0.66, 0.72, 1)
+[sub_resource type="BoxMesh" id="PanelMesh"]
+size = Vector3(2.6, 0.34, 0.08)
+
+[node name="PrefsBoard" type="Node3D"]
+process_mode = 3
+script = ExtResource("1")
+[node name="SunLamp" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-48, 32, 0)
+[node name="SkyFill" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")
+[node name="RigEye" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 4.6)
+current = true
+[node name="Quieter" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69, 0)
+mesh = SubResource("PanelMesh")
+[node name="Caption" type="Label3D" parent="Quieter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08)
+text = "Quieter"
+font_size = 42
+pixel_size = 0.004
+billboard = 1
+[node name="Louder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0)
+mesh = SubResource("PanelMesh")
+[node name="Caption" type="Label3D" parent="Louder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08)
+text = "Louder"
+font_size = 42
+pixel_size = 0.004
+billboard = 1
+[node name="Window" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23, 0)
+mesh = SubResource("PanelMesh")
+[node name="Caption" type="Label3D" parent="Window"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08)
+text = "Window"
+font_size = 42
+pixel_size = 0.004
+billboard = 1
+[node name="Back" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.69, 0)
+mesh = SubResource("PanelMesh")
+[node name="Caption" type="Label3D" parent="Back"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08)
+text = "Back"
+font_size = 42
+pixel_size = 0.004
+billboard = 1
+[node name="Notice" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0)
+text = ""
+font_size = 36
+pixel_size = 0.004
+billboard = 1
